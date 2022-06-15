@@ -4,8 +4,7 @@ import { Container, ThemeProvider } from '@material-ui/core';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 
-import s from './App.module.sass';
-
+import s from 'app/App.module.sass';
 import {
   Progress,
   LightThemeBackground,

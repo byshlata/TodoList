@@ -1,6 +1,7 @@
 {
   "name": "counterreduxtoolkit",
   "version": "0.1.0",
+  "homepage": "https://byshlata.github.io/TodoList",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.4",
@@ -21,6 +22,7 @@
     "eslint-config-react-app": "^7.0.1",
     "frame": "^1.0.0-alpha.2",
     "framer-motion": "^6.3.11",
+    "gh-pages": "^4.0.0",
     "motion": "^10.10.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -34,7 +36,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
