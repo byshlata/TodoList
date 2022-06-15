@@ -1,4 +1,4 @@
-export const dictionary = {
+export const dictionaryColorPalette = {
   EN: {
     titleHelp: 'Change color Todolist',
   },

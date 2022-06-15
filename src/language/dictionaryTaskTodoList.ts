@@ -1,4 +1,4 @@
-export const dictionary = {
+export const dictionaryTaskTodoList = {
   EN: {
     titleHelp: 'Delete Task',
   },

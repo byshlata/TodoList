@@ -1,13 +1,13 @@
-import { ResponseEveryType, TaskType } from 'type';
+import { GetTasksResponseType } from 'type';
 
-const PENCIL_SYMBOL = `\u270E`;
+const PENCIL_SYMBOL = `\u270E................`;
 
-export const changeDescriptionTask = (
-  value: ResponseEveryType<{ item: TaskType }>,
-): ResponseEveryType<{ item: TaskType }> => {
-  if (value.data.item.description === null) {
-    // eslint-disable-next-line no-param-reassign
-    value.data.item.description = `${PENCIL_SYMBOL}................`;
-  }
-  return value;
+export const changeDescriptionArrayTask = (
+  arrayElement: GetTasksResponseType,
+): GetTasksResponseType => {
+  arrayElement.items.forEach((task): void => {
+    // eslint-disable-next-line no-unused-expressions,no-param-reassign
+    task.description === null ? (task.description = `${PENCIL_SYMBOL}`) : null;
+  });
+  return arrayElement;
 };

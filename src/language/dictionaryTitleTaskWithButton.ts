@@ -1,4 +1,4 @@
-export const dictionary = {
+export const dictionaryTitleTaskWithButton = {
   EN: {
     titleHelp: 'Delete Todolist',
   },

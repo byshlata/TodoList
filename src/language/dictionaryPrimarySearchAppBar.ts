@@ -1,6 +1,6 @@
-export const dictionary = {
+export const dictionaryPrimarySearchAppBar = {
   EN: {
-    title: 'Choose language',
+    title: 'Choose selectedLanguage.ts',
     languageEN: 'English',
     languageRU: 'Russian',
     languageBY: 'Belarusian',

@@ -1,0 +1,170 @@
+@import './src/style/colors'
+
+@mixin rotateElement($angle)
+  -moz-transform: rotate($angle)
+  -o-transform: rotate($angle)
+  -ms-transform: rotate($angle)
+  -webkit-transform: rotate($angle)
+  transform: rotate($angle)
+
+@mixin transitionElement($height, $timeHeight, $width, $timeWidth)
+  -webkit-transition: $height $timeHeight, $width $timeWidth
+  -moz-transition: $height $timeHeight, $width $timeWidth
+  -ms-transition: $height $timeHeight, $width $timeWidth
+  -o-transition: $height $timeHeight, $width $timeWidth
+  transition: $height $timeHeight, $width $timeWidth
+
+
+@mixin transitionDelay($delay)
+  -webkit-transition-delay: $delay
+  -moz-transition-delay: $delay
+  -ms-transition-delay: $delay
+  -o-transition-delay: $delay
+  transition-delay: $delay
+
+@mixin nodeElement ($color)
+    width: 100%
+    height: 100%
+    border-radius: 50%
+    position: relative
+    background-image: radial-gradient(ellipse at 50px 10px , $color 0%, $color 45%, white 100%)
+    &:after
+      background: white none repeat scroll 0 0
+      border-radius: 50%
+      content: ''
+      height: 100%
+      width: 100%
+      opacity: 0.15
+      position: absolute
+
+
+.branch
+  @include rotateElement(270deg)
+  display: flex
+  flex-direction: column
+  flex-wrap: nowrap
+  justify-content: flex-end
+  align-items: center
+  align-content: stretch
+  -webkit-display: "-webkit-flex"
+  -webkit-flex-direction: column
+  -webkit-flex-wrap: nowrap
+  -webkit-justify-content: flex-end
+  -webkit-align-items: center
+  -webkit-align-content: stretch
+  position: absolute
+  top: calc(50% - 80px)
+  left: calc(25% - 20px)
+  width: 40px
+  height: 80px
+  moz-transform-origin: center bottom
+  -o-transform-origin: center bottom
+  -ms-transform-origin: center bottom
+  -webkit-transform-origin: center bottom
+  transform-origin: center bottom
+  @include transitionElement(all, 0.5s, width, 0.5s)
+
+
+.branch .node
+  @include transitionElement(height, 0.5s, width, 0.5s)
+  @include transitionDelay(0.5s)
+
+.branch .stem
+  @include transitionElement(height, 0.5s, width, 0.5s)
+  @include transitionDelay(0.5s)
+
+.open
+  @include transitionDelay(0.5s)
+
+.open:nth-child(1)
+  @include rotateElement(150deg)
+
+.open:nth-child(2)
+  @include rotateElement(180deg)
+
+.open:nth-child(3)
+  @include rotateElement(210deg)
+
+.open:nth-child(4)
+  @include rotateElement(240deg)
+
+.open .stem
+  @include transitionDelay(0s)
+  height: 50px
+
+.open .node
+  @include transitionDelay(0s)
+  height: 30px
+  width: 30px
+
+
+.open .node:hover
+  border-width: 6px
+
+.open .node:active
+  -moz-transform: scale(1.03)
+  -o-transform: scale(1.03)
+  -ms-transform: scale(1.03)
+  -webkit-transform: scale(1.03)
+  transform: scale(1.03)
+
+
+.no-animation
+  animation: none
+
+.container
+  cursor: pointer
+  padding-right: 15px
+  position: relative
+
+.mainButton
+  cursor: pointer
+  overflow: hidden
+
+.node
+  flex-basis: auto
+  flex-grow: 0
+  order: 0
+  align-self: auto
+  -webkit-flex-basis: auto
+  -webkit-flex-grow: 0
+  -webkit-order: 0
+  -webkit-align-self: auto
+  width: 0
+  height: 0
+
+
+.main
+    @include nodeElement($whiteTodoMain)
+
+.primary
+    @include nodeElement($deepPinkTodoPrimary)
+
+.secondary
+    @include nodeElement($yellowGreenTodoSecondary)
+
+.additional
+    @include nodeElement($tomatoTodoAdditional)
+
+.best
+    @include nodeElement($indianRedTodoBest)
+
+
+.share
+  position: absolute
+  -moz-transform: translate3d(-40%, -50%, 0)
+  -o-transform: translate3d(-40%, -50%, 0)
+  -ms-transform: translate3d(-40%, -50%, 0)
+  -webkit-transform: translate3d(-40%, -50%, 0)
+  transform: translate3d(-40%, -50%, 0)
+
+.stem
+  flex-basis: auto
+  flex-grow: 0
+  order: 0
+  align-self: auto
+  -webkit-flex-basis: auto
+  -webkit-flex-grow: 0
+  -webkit-order: 1
+  -webkit-align-self: auto
+  height: 0
