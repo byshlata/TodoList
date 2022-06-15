@@ -1,6 +1,6 @@
 export const dictionaryPrimarySearchAppBar = {
   EN: {
-    title: 'Choose selectedLanguage.ts',
+    title: 'Choose selected Language',
     languageEN: 'English',
     languageRU: 'Russian',
     languageBY: 'Belarusian',
@@ -8,7 +8,7 @@ export const dictionaryPrimarySearchAppBar = {
     profile: 'My Profile',
   },
   BY: {
-    title: 'Выбраць мову',
+    title: 'Выбeрыце мову',
     languageEN: 'Аглійскі',
     languageRU: 'Рускі',
     languageBY: 'Беларускі',

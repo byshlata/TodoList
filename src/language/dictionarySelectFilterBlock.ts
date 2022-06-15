@@ -4,7 +4,7 @@ export const dictionarySelectFilterBlock = {
     all: 'All',
     active: 'Active',
     completed: 'Completed',
-    filterHelpMessage: 'Select filterStatus option',
+    filterHelpMessage: 'Select filter status',
   },
   BY: {
     title: 'Фільтр',
