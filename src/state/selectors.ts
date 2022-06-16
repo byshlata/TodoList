@@ -15,4 +15,6 @@ export const isDragDrop = (state: AppRootStore): boolean => state.app.isDragDrop
 
 export const languageNow = (state: AppRootStore): LanguageType => state.app.language;
 
+export const isInitialized = (state: AppRootStore): boolean => state.app.isInitialized;
+
 export const isLoadingUser = (state: AppRootStore): boolean => state.auth.isLoadingUser;

@@ -10,6 +10,7 @@ export {
   isDragDrop,
   languageNow,
   isLoadingUser,
+  isInitialized,
 } from './selectors';
 
 export {
@@ -27,6 +28,7 @@ export {
   changeStateLoading,
   changeTheme,
   setErrorMessage,
+  setInitialized,
   appSlice,
 } from './slice/appSlice';
 

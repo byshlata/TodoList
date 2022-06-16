@@ -16,6 +16,7 @@ export const store = configureStore({
       todolistBackgroundColor: loadStateTodoList(),
       isDragDrop: false,
       language: loadStateLanguage(),
+      isInitialized: false,
     },
   },
   reducer: {

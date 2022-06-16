@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { Api } from 'api/api';
 import { ErrorArrayResponse, ResultCode } from 'enum';
-import { changeStateLoading, setLogged } from 'state';
+import { changeStateLoading, setInitialized, setLogged } from 'state';
 import { LoginParamsType } from 'type';
 
 export const getAuthUser = createAsyncThunk(
@@ -13,6 +13,7 @@ export const getAuthUser = createAsyncThunk(
     try {
       dispatch(changeStateLoading(true));
       const res = await Api.getAuthUser();
+      dispatch(setInitialized(true));
 
       if (res.resultCode === ResultCode.errorRequest) {
         return rejectWithValue(res.messages[ErrorArrayResponse.firstElement]);

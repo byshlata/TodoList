@@ -70,6 +70,10 @@ export const PrimarySearchAppBar = (): React.ReactElement => {
     dispatch(userOut());
   };
 
+  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>): void => {
+    setAnchorEl(event.currentTarget);
+  };
+
   const handleMenuClose = (): void => {
     setAnchorEl(null);
     setMobileMoreAnchorEl(null);
@@ -174,7 +178,7 @@ export const PrimarySearchAppBar = (): React.ReactElement => {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            onClick={handleProfileOut}
+            onClick={handleProfileMenuOpen}
           >
             <LanguageIcon />
           </IconButton>

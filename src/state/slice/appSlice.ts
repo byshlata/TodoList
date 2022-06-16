@@ -9,6 +9,7 @@ const initialState: AppType = {
   todolistBackgroundColor: {},
   isDragDrop: false,
   language: 'EN',
+  isInitialized: false,
 };
 
 export const appSlice = createSlice({
@@ -34,6 +35,10 @@ export const appSlice = createSlice({
     changeLanguage: (state, action: PayloadAction<LanguageType>) => {
       state.language = action.payload;
     },
+
+    setInitialized: (state, action: PayloadAction<boolean>) => {
+      state.isInitialized = action.payload;
+    },
   },
   extraReducers: builder => {
     builder.addMatcher(
@@ -51,4 +56,5 @@ export const {
   changeTheme,
   changeDragDrop,
   changeLanguage,
+  setInitialized,
 } = appSlice.actions;

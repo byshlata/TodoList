@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { Container, ThemeProvider } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
@@ -15,7 +16,7 @@ import {
   TodoListBlock,
 } from 'component';
 import { useAppDispatch } from 'hooks';
-import { isLoadingElement, theme, getAuthUser } from 'state';
+import { isLoadingElement, theme, getAuthUser, isInitialized } from 'state';
 import { themeDark, themeLight } from 'utils';
 
 export const App = (): React.ReactElement => {
@@ -23,10 +24,19 @@ export const App = (): React.ReactElement => {
 
   const isLoading = useSelector(isLoadingElement);
   const selectedTheme = useSelector(theme);
+  const circle = useSelector(isInitialized);
 
   useEffect(() => {
     dispatch(getAuthUser());
   }, []);
+
+  if (!circle) {
+    return (
+      <div style={{ position: 'fixed', top: '30%', textAlign: 'center', width: '100%' }}>
+        <CircularProgress />
+      </div>
+    );
+  }
 
   const themeNow = selectedTheme === 'themeLight' ? themeLight : themeDark;
   const backgroundTheme =

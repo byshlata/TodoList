@@ -113,5 +113,3 @@ export const Login = (): ReactElement => {
     </Grid>
   );
 };
-
-// checked={formik.values.rememberMe}

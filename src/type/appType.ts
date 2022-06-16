@@ -19,4 +19,5 @@ export type AppType = {
   todolistBackgroundColor: todoLocalStorageType;
   isDragDrop: boolean;
   language: LanguageType;
+  isInitialized: boolean;
 };
