@@ -7,9 +7,9 @@ import InputBase from '@material-ui/core/InputBase';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Toolbar from '@material-ui/core/Toolbar';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import Brightness4 from '@material-ui/icons/Brightness4';
 import Brightness5 from '@material-ui/icons/Brightness5';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import LanguageIcon from '@material-ui/icons/Language';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -27,12 +27,14 @@ import { SelectedLanguage } from 'enum';
 import { useAppDispatch } from 'hooks';
 import { dictionaryPrimarySearchAppBar } from 'language';
 import {
-  isDragDrop,
-  languageNow,
-  theme,
   changeDragDrop,
   changeLanguage,
   changeTheme,
+  isDragDrop,
+  isLoadingUser,
+  languageNow,
+  theme,
+  userOut,
 } from 'state';
 import { changeDictionary } from 'utils';
 
@@ -46,6 +48,7 @@ export const PrimarySearchAppBar = (): React.ReactElement => {
   const themeValue = useSelector(theme);
   const isDragDropValue = useSelector(isDragDrop);
   const languageValue = useSelector(languageNow);
+  const isLoggedIn = useSelector(isLoadingUser);
 
   const language = changeDictionary(dictionaryPrimarySearchAppBar, languageValue);
 
@@ -63,8 +66,8 @@ export const PrimarySearchAppBar = (): React.ReactElement => {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>): void => {
-    setAnchorEl(event.currentTarget);
+  const handleProfileOut = (): void => {
+    dispatch(userOut());
   };
 
   const handleMenuClose = (): void => {
@@ -115,7 +118,7 @@ export const PrimarySearchAppBar = (): React.ReactElement => {
       open={isMobileMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem onClick={handleProfileOut}>
         <IconButton aria-label="show 17 new notifications" color="inherit">
           <Badge badgeContent={0} color="secondary">
             <NotificationsIcon />
@@ -124,17 +127,19 @@ export const PrimarySearchAppBar = (): React.ReactElement => {
         <p>{language.messages}</p>
       </MenuItem>
 
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>{language.profile}</p>
-      </MenuItem>
+      {isLoggedIn && (
+        <MenuItem onClick={handleProfileOut}>
+          <IconButton
+            aria-label="account of current user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <ExitToAppIcon />
+          </IconButton>
+          <p>{language.profile}</p>
+        </MenuItem>
+      )}
 
       <MenuItem>
         {SwitchLabels(
@@ -169,7 +174,7 @@ export const PrimarySearchAppBar = (): React.ReactElement => {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            onClick={handleProfileMenuOpen}
+            onClick={handleProfileOut}
           >
             <LanguageIcon />
           </IconButton>
@@ -216,16 +221,18 @@ export const PrimarySearchAppBar = (): React.ReactElement => {
               </Badge>
             </IconButton>
 
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              // onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+            {isLoggedIn && (
+              <IconButton
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileOut}
+                color="inherit"
+              >
+                <ExitToAppIcon />
+              </IconButton>
+            )}
           </div>
 
           <div className={classes.sectionMobile}>

@@ -3,19 +3,28 @@ import React, { ReactElement, useEffect, useRef } from 'react';
 import { Container } from '@material-ui/core';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import s from 'app/App.module.sass';
 import { InputWithButton } from 'component/inputWithButton/InputWithButton';
 import { TodoList } from 'component/todoList/TodoList';
 import { useAppDispatch } from 'hooks';
-import { createTodoList, getTodoList, isDragDrop, todoList } from 'state';
+import { createTodoList, getTodoList, isDragDrop, isLoadingUser, todoList } from 'state';
 
 export const TodoListBlock = (): ReactElement => {
   const dispatch = useAppDispatch();
 
+  const isLoggedIn = useSelector(isLoadingUser);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
-    dispatch(getTodoList());
-  }, []);
+    if (isLoggedIn) {
+      dispatch(getTodoList());
+    } else {
+      navigate('login');
+    }
+  }, [isLoggedIn]);
 
   const constraintsRef = useRef(null);
   const todoLists = useSelector(todoList);

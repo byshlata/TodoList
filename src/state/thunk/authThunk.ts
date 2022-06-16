@@ -18,7 +18,7 @@ export const getAuthUser = createAsyncThunk(
         return rejectWithValue(res.messages[ErrorArrayResponse.firstElement]);
       }
       dispatch(changeStateLoading(false));
-      dispatch(setLogged(false));
+      dispatch(setLogged(true));
     } catch (err) {
       if (axios.isAxiosError(err)) {
         return rejectWithValue(err.message);
@@ -35,13 +35,13 @@ export const authUser = createAsyncThunk(
   async (payload: LoginParamsType, { rejectWithValue, dispatch }) => {
     try {
       dispatch(changeStateLoading(true));
-      const res = await Api.authUser(payload);
 
+      const res = await Api.authUser(payload);
       if (res.resultCode === ResultCode.errorRequest) {
         return rejectWithValue(res.messages[ErrorArrayResponse.firstElement]);
       }
       dispatch(changeStateLoading(false));
-      dispatch(setLogged(false));
+      dispatch(setLogged(true));
     } catch (err) {
       if (axios.isAxiosError(err)) {
         return rejectWithValue(err.message);
@@ -58,13 +58,12 @@ export const userOut = createAsyncThunk(
   async (_, { rejectWithValue, dispatch }) => {
     try {
       dispatch(changeStateLoading(true));
-      const res = await Api.authOff();
 
+      const res = await Api.authOff();
       if (res.resultCode === ResultCode.errorRequest) {
         return rejectWithValue(res.messages[ErrorArrayResponse.firstElement]);
       }
-      dispatch(changeStateLoading(false));
-      dispatch(setLogged(true));
+      dispatch(setLogged(false));
     } catch (err) {
       if (axios.isAxiosError(err)) {
         return rejectWithValue(err.message);
