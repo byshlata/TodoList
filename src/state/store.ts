@@ -7,11 +7,6 @@ import { todoListSlice } from './slice/todoListSlice';
 import { loadStateLanguage, loadStateTheme, loadStateTodoList, saveState } from 'utils';
 
 export const store = configureStore({
-  reducer: {
-    tasks: tasksSlice.reducer,
-    todoList: todoListSlice.reducer,
-    app: appSlice.reducer,
-  },
   preloadedState: {
     app: {
       theme: loadStateTheme(),
@@ -21,6 +16,11 @@ export const store = configureStore({
       isDragDrop: false,
       language: loadStateLanguage(),
     },
+  },
+  reducer: {
+    tasks: tasksSlice.reducer,
+    todoList: todoListSlice.reducer,
+    app: appSlice.reducer,
   },
 });
 

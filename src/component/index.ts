@@ -12,7 +12,7 @@ export { InputWithButton } from './inputWithButton/InputWithButton';
 
 export { LightThemeBackground } from './lightThemeBackground/LightThemeBackground';
 
-export { PrimarySearchAppBar } from './primarySearchAppBar/PrimarySearchAppBar';
+export { PrimarySearchAppBar } from './PrimarySearchAppBar/PrimarySearchAppBar';
 
 export { Progress } from './progress/Progress';
 
