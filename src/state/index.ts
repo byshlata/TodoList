@@ -9,6 +9,7 @@ export {
   errorMessage,
   isDragDrop,
   languageNow,
+  isLoadingUser,
 } from './selectors';
 
 export {
@@ -46,3 +47,7 @@ export {
   changeTodoListTitle,
   todoListSlice,
 } from './slice/todoListSlice';
+
+export { setLogged, authSlice } from './slice/authSlice';
+
+export { getAuthUser, userOut, authUser } from './thunk/authThunk';

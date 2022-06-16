@@ -5,6 +5,8 @@ export type {
   TodolistCreateType,
   TodolistResponseType,
   UpdateTaskType,
+  AuthResponseType,
+  LoginParamsType,
 } from './apiType';
 
 export type {
@@ -35,3 +37,5 @@ export type {
   UpdateTitleTodoListActionType,
   TodoListType,
 } from './todoListType';
+
+export type { AuthType } from './authType';

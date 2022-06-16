@@ -14,3 +14,5 @@ export const todoList = (state: AppRootStore): TodoListType[] => state.todoList;
 export const isDragDrop = (state: AppRootStore): boolean => state.app.isDragDrop;
 
 export const languageNow = (state: AppRootStore): LanguageType => state.app.language;
+
+export const isLoadingUser = (state: AppRootStore): boolean => state.auth.isLoadingUser;

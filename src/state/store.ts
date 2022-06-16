@@ -4,6 +4,7 @@ import { appSlice } from './slice/appSlice';
 import { tasksSlice } from './slice/tasksSlice';
 import { todoListSlice } from './slice/todoListSlice';
 
+import { authSlice } from 'state/slice/authSlice';
 import { loadStateLanguage, loadStateTheme, loadStateTodoList, saveState } from 'utils';
 
 export const store = configureStore({
@@ -21,6 +22,7 @@ export const store = configureStore({
     tasks: tasksSlice.reducer,
     todoList: todoListSlice.reducer,
     app: appSlice.reducer,
+    auth: authSlice.reducer,
   },
 });
 

@@ -3,7 +3,9 @@ import { AxiosResponse } from 'axios';
 import { API_CONFIG } from 'api/config';
 import { PathApi } from 'enum';
 import {
+  AuthResponseType,
   GetTasksResponseType,
+  LoginParamsType,
   ResponseEveryType,
   TaskType,
   TodolistCreateType,
@@ -69,5 +71,17 @@ export const Api = {
       `${PathApi.todoList}/${todoListId}/${PathApi.task}/${id}`,
       { ...body },
     );
+  },
+  authUser: async (payload: LoginParamsType) => {
+    const res = await API_CONFIG.post<any>(`/auth/login`, payload);
+    return res.data;
+  },
+  getAuthUser: async () => {
+    const res = await API_CONFIG.get<AuthResponseType>(`/auth/me`);
+    return res.data;
+  },
+  authOff: async () => {
+    const res = await API_CONFIG.delete<AuthResponseType>(`/auth/login`);
+    return res.data;
   },
 };
