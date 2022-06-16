@@ -22,7 +22,7 @@ import { SwitchLabels } from '../switchLabels/SwitchLabels';
 
 import s from './PrimarySearchAppBar.module.sass';
 
-import { useStyles } from 'component/PrimarySearchAppBar/useStyles/useStyles';
+import { useStyles } from 'component/primarySearchAppBar/useStyles/useStyles';
 import { SelectedLanguage } from 'enum';
 import { useAppDispatch } from 'hooks';
 import { dictionaryPrimarySearchAppBar } from 'language';
