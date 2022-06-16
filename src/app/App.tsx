@@ -52,10 +52,10 @@ export const App = (): React.ReactElement => {
 
       <Container fixed>
         <Routes>
-          <Route path="/" element={<TodoListBlock />} />
-          <Route path="login" element={<Login />} />
-          <Route path="/404" element={<Page404 />} />
-          <Route path="*" element={<Navigate to="/404" />} />
+          <Route path={'/'} element={<TodoListBlock />} />
+          <Route path={'login'} element={<Login />} />
+          <Route path={'/404'} element={<Page404 />} />
+          <Route path={'*'} element={<Navigate to="/404" />} />
         </Routes>
       </Container>
 
