@@ -5,7 +5,7 @@ export const dictionaryPrimarySearchAppBar = {
     languageRU: 'Russian',
     languageBY: 'Belarusian',
     messages: 'Messages',
-    profile: 'My Profile',
+    profile: 'Exit',
   },
   BY: {
     title: 'Выбeрыце мову',
@@ -13,7 +13,7 @@ export const dictionaryPrimarySearchAppBar = {
     languageRU: 'Рускі',
     languageBY: 'Беларускі',
     messages: 'Паведамленне',
-    profile: 'Мой профіль',
+    profile: 'Выйсці',
   },
   RU: {
     title: 'Выберите язык',
@@ -21,6 +21,6 @@ export const dictionaryPrimarySearchAppBar = {
     languageRU: 'Русский',
     languageBY: 'Белорусский',
     messages: 'Сообщение',
-    profile: 'Мой профиль',
+    profile: 'Выйти',
   },
 };
