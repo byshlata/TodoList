@@ -47,7 +47,7 @@ export {
   changeTodoListTitle,
   todoListSlice,
 } from './slice/todoListSlice';
-git
+
 
 export { setLogged, authSlice } from './slice/authSlice';
 
