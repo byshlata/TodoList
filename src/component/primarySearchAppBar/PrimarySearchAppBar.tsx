@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -14,7 +13,6 @@ import LanguageIcon from '@material-ui/icons/Language';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import PanToolOutlinedIcon from '@material-ui/icons/PanToolOutlined';
-import SearchIcon from '@material-ui/icons/Search';
 import TouchAppTwoToneIcon from '@material-ui/icons/TouchAppTwoTone';
 import { useSelector } from 'react-redux';
 
@@ -182,20 +180,6 @@ export const PrimarySearchAppBar = (): React.ReactElement => {
           >
             <LanguageIcon />
           </IconButton>
-
-          <div className={classes.grow} />
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
 
           <div className={classes.grow} />
 
