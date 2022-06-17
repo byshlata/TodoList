@@ -12,9 +12,11 @@ import { useFormik } from 'formik';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
+import { RuleFormik, TestData } from 'enum';
 import { useAppDispatch } from 'hooks';
-import { isLoadingUser } from 'state';
-import { authUser } from 'state/thunk/authThunk';
+import { dictionaryLogin } from 'language';
+import { authUser, isLoadingUser, languageNow } from 'state';
+import { changeDictionary } from 'utils';
 
 type FormikErrorType = {
   email?: string;
@@ -25,6 +27,8 @@ type FormikErrorType = {
 export const Login = (): ReactElement => {
   const dispatch = useAppDispatch();
   const isLoggedIn = useSelector(isLoadingUser);
+  const languageValue = useSelector(languageNow);
+  const language = changeDictionary(dictionaryLogin, languageValue);
 
   const formik = useFormik({
     initialValues: {
@@ -35,15 +39,14 @@ export const Login = (): ReactElement => {
     validate: values => {
       const errors: FormikErrorType = {};
       if (!values.email) {
-        errors.email = 'Required';
+        errors.email = language.error.emailErrorMustBe;
       } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'Invalid email address';
+        errors.email = language.error.emailErrorData;
       }
       if (!values.password) {
-        errors.password = 'Password must be';
-        // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-      } else if (values.password.length < 3) {
-        errors.password = 'Password must be at least 3 characters';
+        errors.password = language.error.passwordErrorMustBe;
+      } else if (values.password.length < RuleFormik.minLinePassword) {
+        errors.password = language.error.passwordErrorLength;
       }
       return errors;
     },
@@ -58,29 +61,22 @@ export const Login = (): ReactElement => {
   }
 
   return (
-    <Grid container justifyContent="center">
-      <Grid item justifyContent="center">
+    <Grid container justifyContent="center" style={{ margin: '0 auto' }}>
+      <Grid item style={{ width: '300px' }}>
         <form onSubmit={formik.handleSubmit}>
           <FormControl>
             <FormLabel>
+              <p style={{ height: '50px' }}>{language.description.firstLine}</p>
               <p>
-                To log in get registered
-                <a
-                  href="https://social-network.samuraijs.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {' '}
-                  here
-                </a>
+                {language.description.emailStr} <b>{TestData.email}</b>
               </p>
-              <p>or use common test account credentials:</p>
-              <p>Email: free@samuraijs.com</p>
-              <p>Password: free</p>
+              <p>
+                {language.description.passwordStr} <b>{TestData.password}</b>
+              </p>
             </FormLabel>
             <FormGroup>
               <TextField
-                label="Email"
+                label={language.description.emailStr}
                 margin="normal"
                 /* eslint-disable-next-line react/jsx-props-no-spreading */
                 {...formik.getFieldProps('email')}
@@ -90,7 +86,7 @@ export const Login = (): ReactElement => {
               )}
               <TextField
                 type="password"
-                label="Password"
+                label={language.description.passwordStr}
                 margin="normal"
                 /* eslint-disable-next-line react/jsx-props-no-spreading */
                 {...formik.getFieldProps('password')}
@@ -99,12 +95,12 @@ export const Login = (): ReactElement => {
                 <div style={{ color: 'red' }}>{formik.errors.password}</div>
               )}
               <FormControlLabel
-                label="Remember me"
+                label={language.description.checkBox}
                 /* eslint-disable-next-line react/jsx-props-no-spreading */
                 control={<Checkbox {...formik.getFieldProps('rememberMe')} />}
               />
               <Button type="submit" variant="contained" color="primary">
-                Login
+                {language.description.buttonName}
               </Button>
             </FormGroup>
           </FormControl>

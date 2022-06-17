@@ -9,3 +9,5 @@ export { dictionarySelectFilterBlock } from './dictionarySelectFilterBlock';
 export { dictionaryTaskTodoList } from './dictionaryTaskTodoList';
 
 export { dictionaryTitleTaskWithButton } from './dictionaryTitleTaskWithButton';
+
+export { dictionaryLogin } from './dictionaryLogin';
