@@ -49,7 +49,7 @@ export const App = (): ReactElement => {
       {backgroundTheme}
 
       <PrimarySearchAppBar />
-
+      <Progress isLoading={isLoading} />
       <Container fixed>
         <Routes>
           <Route path="/TodoList" element={<TodoListBlock />} />
@@ -59,8 +59,6 @@ export const App = (): ReactElement => {
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
       </Container>
-
-      <Progress isLoading={isLoading} />
     </ThemeProvider>
   );
 };
