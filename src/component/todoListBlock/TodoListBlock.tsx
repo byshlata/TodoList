@@ -31,7 +31,7 @@ export const TodoListBlock = (): ReactElement => {
   const isDragDropValue = useSelector(isDragDrop);
 
   const dragDropElement = (
-    <motion.div className={s.appTodoListWrapper} ref={constraintsRef}>
+    <motion.div className={s.TodoListWrapper} ref={constraintsRef}>
       {todoLists.map(m => (
         <motion.div key={m.id} className="item" drag dragConstraints={constraintsRef}>
           <TodoList todoList={m} />
@@ -41,7 +41,7 @@ export const TodoListBlock = (): ReactElement => {
   );
 
   const ordinaryElement = (
-    <div className={s.appTodoListWrapper} ref={constraintsRef}>
+    <div className={s.TodoListWrapper} ref={constraintsRef}>
       {todoLists.map(m => (
         <div key={m.id} className="item">
           <TodoList todoList={m} />
@@ -56,8 +56,8 @@ export const TodoListBlock = (): ReactElement => {
 
   return (
     <Container>
-      <section className={s.appGridContainer}>
-        <div className={s.appInputWrapper}>
+      <section className={s.GridContainer}>
+        <div className={s.InputWrapper}>
           <InputWithButton add={addTodoList} />
         </div>
         {isDragDropValue ? dragDropElement : ordinaryElement}
