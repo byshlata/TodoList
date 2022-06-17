@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 
 import { Container, ThemeProvider } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -19,7 +19,7 @@ import { useAppDispatch } from 'hooks';
 import { isLoadingElement, theme, getAuthUser, isInitialized } from 'state';
 import { themeDark, themeLight } from 'utils';
 
-export const App = (): React.ReactElement => {
+export const App = (): ReactElement => {
   const dispatch = useAppDispatch();
 
   const isLoading = useSelector(isLoadingElement);
@@ -52,10 +52,11 @@ export const App = (): React.ReactElement => {
 
       <Container fixed>
         <Routes>
-          <Route path={'/'} element={<TodoListBlock />} />
-          <Route path={'login'} element={<Login />} />
-          <Route path={'/404'} element={<Page404 />} />
-          <Route path={'*'} element={<Navigate to="/404" />} />
+          <Route path="/TodoList" element={<TodoListBlock />} />
+          <Route path="/login" element={<Login />} />
+
+          <Route path="/404" element={<Page404 />} />
+          <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
       </Container>
 

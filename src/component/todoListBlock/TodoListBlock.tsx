@@ -6,8 +6,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import s from 'app/App.module.sass';
-import { InputWithButton } from 'component/inputWithButton/InputWithButton';
-import { TodoList } from 'component/todoList/TodoList';
+import { TodoList, InputWithButton } from 'component';
 import { useAppDispatch } from 'hooks';
 import { createTodoList, getTodoList, isDragDrop, isLoadingUser, todoList } from 'state';
 
@@ -22,7 +21,7 @@ export const TodoListBlock = (): ReactElement => {
     if (isLoggedIn) {
       dispatch(getTodoList());
     } else {
-      navigate('login');
+      navigate('/login');
     }
   }, [isLoggedIn]);
 

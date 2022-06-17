@@ -54,7 +54,7 @@ export const Login = (): ReactElement => {
   });
 
   if (isLoggedIn) {
-    return <Navigate to="/" />;
+    return <Navigate to="/TodoList" />;
   }
 
   return (

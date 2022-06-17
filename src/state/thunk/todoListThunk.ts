@@ -14,7 +14,7 @@ import {
 import { backgroundColorType, UpdateTitleTodoListActionType } from 'type';
 
 export const getTodoList = createAsyncThunk(
-  'todoListSlice.getTodoList',
+  'todoListSlice/getTodoList',
   // eslint-disable-next-line consistent-return
   async (_, { rejectWithValue, dispatch, getState }) => {
     try {
