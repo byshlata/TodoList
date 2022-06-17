@@ -96,6 +96,7 @@ export const Login = (): ReactElement => {
               )}
               <FormControlLabel
                 label={language.description.checkBox}
+                style={{ color: 'white' }}
                 /* eslint-disable-next-line react/jsx-props-no-spreading */
                 control={<Checkbox {...formik.getFieldProps('rememberMe')} />}
               />
