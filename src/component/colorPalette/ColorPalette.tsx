@@ -11,7 +11,7 @@ import { NodePalette } from './nodePalette/NodePalette';
 import { useAppDispatch } from 'hooks';
 import { dictionaryColorPalette } from 'language';
 import { changeBackgroundColor, languageNow } from 'state';
-import { backgroundColorType } from 'type';
+import { BackgroundColorType } from 'type';
 import { changeDictionary, defineClassNode } from 'utils';
 
 const COLORS_VALUE = [
@@ -46,7 +46,7 @@ export const ColorPalette = ({ idTodoList }: ColorPaletteType): ReactElement => 
     setIsOpenPallet(false);
   };
 
-  const changeColor = (color: backgroundColorType): void => {
+  const changeColor = (color: BackgroundColorType): void => {
     const backgroundColor = defineClassNode(color);
     dispatch(changeBackgroundColor({ idTodoList, backgroundColor }));
   };

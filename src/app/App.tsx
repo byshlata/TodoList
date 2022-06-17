@@ -5,6 +5,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
+import s from './App.module.sass';
+
 import {
   DarkThemeBackground,
   ErrorSnackbar,
@@ -32,7 +34,7 @@ export const App = (): ReactElement => {
 
   if (!circle) {
     return (
-      <div style={{ position: 'fixed', top: '30%', textAlign: 'center', width: '100%' }}>
+      <div className={s.circle}>
         <CircularProgress />
       </div>
     );

@@ -47,7 +47,7 @@ export const dictionaryLogin = {
       secondLine: '',
       emailStr: 'Эл. почта:',
       passwordStr: 'Пароль:',
-      checkBox: 'Запомнить мене',
+      checkBox: 'Запомнить меня',
       buttonName: 'Войти',
     },
   },

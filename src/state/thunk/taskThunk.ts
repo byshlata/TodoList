@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Api } from 'api/api';
 import { ErrorArrayResponse, ResultCode } from 'enum';
 import { changeStateLoading, addTask, changeTask, removeTask, setTasks } from 'state';
-import { UpdateTaskType, createTaskActionType, deleteTaskActionType } from 'type';
+import { UpdateTaskType, CreateTaskActionType, DeleteTaskActionType } from 'type';
 import { changeDescriptionArrayTask, changeDescriptionTask } from 'utils';
 
 export const getTasks = createAsyncThunk(
@@ -29,7 +29,7 @@ export const getTasks = createAsyncThunk(
 export const createTask = createAsyncThunk(
   'tasksSlice/createTask',
   // eslint-disable-next-line consistent-return
-  async (value: createTaskActionType, { rejectWithValue, dispatch }) => {
+  async (value: CreateTaskActionType, { rejectWithValue, dispatch }) => {
     try {
       dispatch(changeStateLoading(true));
 
@@ -51,7 +51,7 @@ export const createTask = createAsyncThunk(
 export const deleteTask = createAsyncThunk(
   'tasksSlice/deleteTask',
   // eslint-disable-next-line consistent-return
-  async (value: deleteTaskActionType, { rejectWithValue, dispatch }) => {
+  async (value: DeleteTaskActionType, { rejectWithValue, dispatch }) => {
     try {
       dispatch(changeStateLoading(true));
 

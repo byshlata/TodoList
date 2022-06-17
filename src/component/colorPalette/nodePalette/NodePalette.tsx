@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { backgroundColorType } from 'type';
+import { BackgroundColorType } from 'type';
 import { defineClassNode } from 'utils';
 
 type NodePaletteType = {
@@ -8,7 +8,7 @@ type NodePaletteType = {
   node: string;
   stem: string;
   colorNode: string;
-  changeColor: (value: backgroundColorType) => void;
+  changeColor: (value: BackgroundColorType) => void;
 };
 
 export const NodePalette = ({

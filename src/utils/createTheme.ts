@@ -23,7 +23,7 @@ export const themeLight = createTheme({
       main: 'rgba(250, 250, 250, 1)',
     },
     background: {
-      paper: 'rgba(129, 184, 235, 0.6)',
+      paper: 'rgba(129, 184, 235, 0.8)',
     },
   },
 });

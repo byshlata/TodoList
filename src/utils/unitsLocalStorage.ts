@@ -1,4 +1,4 @@
-import { ThemeType, todoLocalStorageType, TodoListType, LanguageType } from 'type';
+import { ThemeType, TodoLocalStorageType, TodoListType, LanguageType } from 'type';
 
 export const loadStateTheme = (): ThemeType => {
   try {
@@ -44,7 +44,7 @@ export const saveState = (state: {
   language: LanguageType;
 }): void => {
   try {
-    const todolistBackgroundColor: todoLocalStorageType = {};
+    const todolistBackgroundColor: TodoLocalStorageType = {};
 
     state.todolist.forEach(element => {
       todolistBackgroundColor[element.id] = element.backgroundColor;

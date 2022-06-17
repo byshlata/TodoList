@@ -10,12 +10,12 @@ export type {
 } from './apiType';
 
 export type {
-  createTaskActionType,
-  deleteTaskActionType,
+  CreateTaskActionType,
+  DeleteTaskActionType,
   GetTaskPayloadActionType,
   RemoveTaskPayloadActionType,
   TasksType,
-  getTasksType,
+  GetTasksType,
 } from './tasksType';
 
 export type {
@@ -24,11 +24,11 @@ export type {
   FilterValueType,
   LanguageType,
   StringNullType,
-  todoLocalStorageType,
+  TodoLocalStorageType,
 } from './appType';
 
 export type {
-  backgroundColorType,
+  BackgroundColorType,
   TodoListActionType,
   FilterValuesType,
   ChangeBackgroundTodoListActionType,

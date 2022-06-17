@@ -4,7 +4,7 @@ export type TasksType = {
   [key: string]: TaskType[];
 };
 
-export type getTasksType = {
+export type GetTasksType = {
   idTodoList: string;
   count: number;
   page: number;
@@ -20,12 +20,12 @@ export type GetTaskPayloadActionType = {
   tasks: TaskType[];
 };
 
-export type createTaskActionType = {
+export type CreateTaskActionType = {
   title: string;
   idTodoList: string;
 };
 
-export type deleteTaskActionType = {
+export type DeleteTaskActionType = {
   idTask: string;
   idTodoList: string;
 };

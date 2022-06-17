@@ -11,7 +11,7 @@ import {
   removeTodoList,
   setTodoList,
 } from 'state';
-import { backgroundColorType, UpdateTitleTodoListActionType } from 'type';
+import { BackgroundColorType, UpdateTitleTodoListActionType } from 'type';
 
 export const getTodoList = createAsyncThunk(
   'todoListSlice/getTodoList',
@@ -27,7 +27,7 @@ export const getTodoList = createAsyncThunk(
         const todoListBackgroundColor = state.app.todolistBackgroundColor;
 
         const todoList = res.map(({ id, title, addedDate, order }) => {
-          let backgroundColor: backgroundColorType = ColorTodolist.main;
+          let backgroundColor: BackgroundColorType = ColorTodolist.main;
           if (todoListBackgroundColor[id]) {
             backgroundColor = todoListBackgroundColor[id];
           }

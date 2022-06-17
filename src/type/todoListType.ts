@@ -1,7 +1,7 @@
 import { TodolistResponseType } from './apiType';
 
 export type FilterValuesType = 'all' | 'active' | 'completed';
-export type backgroundColorType =
+export type BackgroundColorType =
   | 'main'
   | 'primary'
   | 'secondary'
@@ -11,7 +11,7 @@ export type backgroundColorType =
 export type TodoListType = TodolistResponseType & {
   filter: FilterValuesType;
   amountTasks: number;
-  backgroundColor: backgroundColorType;
+  backgroundColor: BackgroundColorType;
 };
 
 export type TodoListActionType = {
@@ -27,7 +27,7 @@ export type UpdateFilterTodoListActionType = TodoListActionType & {
 };
 
 export type ChangeBackgroundTodoListActionType = TodoListActionType & {
-  backgroundColor: backgroundColorType;
+  backgroundColor: BackgroundColorType;
 };
 
 export type ErrorRejectedType = {

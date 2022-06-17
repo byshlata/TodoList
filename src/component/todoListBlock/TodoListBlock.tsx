@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import s from 'app/App.module.sass';
+import s from './TodoListBlock.module.sass';
+
 import { TodoList, InputWithButton } from 'component';
 import { useAppDispatch } from 'hooks';
 import { createTodoList, getTodoList, isDragDrop, isLoadingUser, todoList } from 'state';
